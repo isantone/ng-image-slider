@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    min-width: 320px;
+    margin: 0;
+    padding: 8px;
+}
+
+.img-viewer {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 520px;
+}
+
+@media screen and (min-width: 1280px) {
+    .img-viewer {
+        flex-direction: row;
+    }
+}
