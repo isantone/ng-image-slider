@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 import Image from '../Image';
 import { IMAGES } from '../mock-images';
@@ -20,21 +20,23 @@ export class ImgViewerComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect(image: Image): void {
-    this.selectedImage = image;
-    this.prevSelectedImage = null;
+  onSelect(activeImage: Image): void {
+    this.setImages(activeImage);
   }
 
-  onHover(image: Image): void {
-    this.prevSelectedImage = this.selectedImage;
-    this.selectedImage = image;
+  onMouseEnter(activeImage: Image): void {
+    this.setImages(activeImage, this.selectedImage);
   }
 
-  onLeave(image: Image): void {
+  onMouseLeave(): void {
     if (this.prevSelectedImage) {
-      this.selectedImage = this.prevSelectedImage;
-      this.prevSelectedImage = null;
+      this.setImages(this.prevSelectedImage);
     }
+  }
+
+  private setImages(selectedImage: Image, prevSelectedImage: Image = null) {
+    this.selectedImage = selectedImage;
+    this.prevSelectedImage = prevSelectedImage;
   }
 
 }

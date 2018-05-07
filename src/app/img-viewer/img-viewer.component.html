@@ -7,10 +7,10 @@
     *ngFor="let image of images"
     [class.selected]="image === selectedImage"
     [class.preselected]="prevSelectedImage && image === prevSelectedImage"
-    (mouseenter)="onHover(image)"
-    (mouseleave)="onLeave(image)"
+    (mouseenter)="onMouseEnter(image)"
+    (mouseleave)="onMouseLeave()"
     (click)="onSelect(image)"
-  >
+>
     <img class="preview-image" src="{{ image.preview }}" alt="{{ image.preview }}">
   </li>
 </ul>
